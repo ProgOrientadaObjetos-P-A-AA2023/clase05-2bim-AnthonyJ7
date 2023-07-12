@@ -4,19 +4,45 @@
  */
 package paquete11;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public class Principal {
+
     public static void main(String[] args) {
-        
-        /*
-        Usar el txt llamado usuarios.txt; por cada línea del archivo
-        crer un API en función de su servicio; además el API ahora genera
-        información estática (no cambia el API), se debe buscar la forma que el 
-        API sea dinámico totalmente (usar alguna librería propia de JAVA, tipo 
-        Random); la url final debe contener el tipo de servicio y el user
-        Por cada objeto de tipo GeneradoPelicula presentar la información 
-        a través de un toString
-        */
-        
-        
+/*
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("usuarios.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] userData = line.split(";");
+                String serviceType = userData[0];
+                String username = userData[1];
+
+                // Crear objeto GeneradoPelicula con la información obtenida
+                GeneradorPelicula pelicula = new GeneradorPelicula(serviceType, username);
+
+                // Mostrar información utilizando el método toString
+                System.out.println(pelicula.toString());
+
+                // Llamar al método del API correspondiente al tipo de servicio
+                if (serviceType.equals("servicio1")) {
+                    String apiUrl = generateService1API(username);
+                    System.out.println("API URL: " + apiUrl);
+                } else if (serviceType.equals("servicio2")) {
+                    String apiUrl = generateService2API(username);
+                    System.out.println("API URL: " + apiUrl);
+                }
+                // Agregar más condiciones para otros tipos de servicios...
+
+                System.out.println();
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+*/
+}
 }

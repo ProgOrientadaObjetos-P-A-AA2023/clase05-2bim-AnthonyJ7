@@ -23,6 +23,8 @@ public class Principal {
         ensayo.establecerPromedioObjetivas();
 
         System.out.printf("%d\n", ensayo.obtenerNumeroProblemas());
+        System.out.printf("%.2f\n",ensayo.obtenerPromedioEnsayo());
+        System.out.printf("%.2f\n",ensayo.obtenerTotalProblemas());
 
     }
 }

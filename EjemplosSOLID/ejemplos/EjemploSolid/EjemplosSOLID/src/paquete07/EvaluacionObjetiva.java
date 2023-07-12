@@ -29,18 +29,26 @@ public class EvaluacionObjetiva extends Evaluacion {
     public double obtenerTotalPreguntas() {
         return totalPreguntas;
     }
-
+    
+    @Override
+    
     public void establecerPromedioObjetivas() {
         promedioObjetivas = obtenerTotalPreguntas() / obtenerNumeroPreguntas();
     }
+    
+    @Override
 
     public double obtenerPromedioObjetivas() {
         return promedioObjetivas;
     }
+    
+    @Override
 
     public void establecerPromedioEnsayo() {
         // pass
     }
+    
+    @Override
 
     public double obtenerPromedioEnsayo() {
         return 0.0;

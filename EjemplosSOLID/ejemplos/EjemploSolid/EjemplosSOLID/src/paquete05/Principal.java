@@ -15,6 +15,7 @@ public class Principal {
         un menor de edad
         
         ¿Qué se puede plantear?
+        
         */
         try {
             MenorEdad menor = new MenorEdad("Felipe");

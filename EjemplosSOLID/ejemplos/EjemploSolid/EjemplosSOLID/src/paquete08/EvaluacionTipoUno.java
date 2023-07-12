@@ -13,4 +13,5 @@ public interface EvaluacionTipoUno {
     
     public void establecerPromedioObjetivas();
     public double obtenerPromedioObjetivas();
+    
 }

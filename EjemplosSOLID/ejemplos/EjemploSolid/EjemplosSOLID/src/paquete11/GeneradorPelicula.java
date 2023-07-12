@@ -9,7 +9,10 @@ public class GeneradorPelicula {
     
     private APIMovie llave;
     private String url;
+    
     // agregar un user (tipo String)
+    // Grupo1
+    
     
     public void establecerLlave(APIMovie l){ // APINetflix, APIAmazon
         llave = l;
