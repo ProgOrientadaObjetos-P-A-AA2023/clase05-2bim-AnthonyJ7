@@ -7,21 +7,22 @@ package paquete11;
 
 import java.util.Random;
 
+public class APIAmazonMovie implements APIMovie {
 
-public class APIAmazonMovie implements APIMovie{
-    
     private String apiKey;
-    
-     @Override
-    public void establecerApiKey(){
+
+    @Override
+    public void establecerApiKey() {
+
         Random r = new Random();
         String random = String.format("%d",  r.nextInt(15121644));
         apiKey = random;
     }
-    
+
     @Override
-    public String obtenerApiKey(){
+    public String obtenerApiKey() {
         return apiKey;
+
     }
-    
+
 }

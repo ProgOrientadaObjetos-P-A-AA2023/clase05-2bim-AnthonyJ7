@@ -2,29 +2,21 @@ package paquete11;
 
 import java.util.Random;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+class APIStarPlus implements APIMovie {
 
-/**
- *
- * @author ASUS
- */
-public class APIStarPlus implements APIMovie{
+    private String apiKey;
 
-      private String apiKey;
-    
     @Override
-    public void establecerApiKey(){
-       Random r = new Random();
-        String random = String.format("%d",  r.nextInt(15121644));
+    public void establecerApiKey() {
+
+        Random r = new Random();
+        String random = String.format("%d", r.nextInt(15121644));
         apiKey = random;
     }
-    
+
     @Override
-    public String obtenerApiKey(){
+    public String obtenerApiKey() {
         return apiKey;
+
     }
-    
 }

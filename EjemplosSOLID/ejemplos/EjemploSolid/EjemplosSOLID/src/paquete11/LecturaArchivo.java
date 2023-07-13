@@ -6,15 +6,12 @@ package paquete11;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
-/**
- *
- * @author ASUS
- */
-public final class LecturaArchivo {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class LecturaArchivo {
 
     private Scanner entrada;
     private String nombreArchivo;
@@ -23,17 +20,15 @@ public final class LecturaArchivo {
 
     public LecturaArchivo(String n) {
         nombreArchivo = n;
-
-        rutaArchivo = String.format("datos/%s", obtenerNombreArchivo());
+        rutaArchivo = String.format("datos/%s", nombreArchivo);
         File f = new File(rutaArchivo);
         if (f.exists()) {
             try {
                 entrada = new Scanner(new File(rutaArchivo));
-            } // fin de try
-            catch (FileNotFoundException e) {
+            } catch (FileNotFoundException e) {
                 System.err.println("Error al leer del archivo: " + e);
 
-            } // fin de catch
+            }
         }
     }
 
@@ -61,59 +56,16 @@ public final class LecturaArchivo {
         if (f.exists()) {
 
             while (entrada.hasNext()) {
+
                 String linea = entrada.nextLine();
 
                 ArrayList<String> linea_partes = new ArrayList<>(
                         Arrays.asList(linea.split(";")));
 
-                GeneradorPelicula p = new GeneradorPelicula();
-
-                if (linea_partes.get(2).equals("Netflix")) {
-                    APINetflix api = new APINetflix();
-
-                    api.establecerApiKey();
-                    p.establecerTipo(linea_partes.get(2));
-                    p.establecerLlave(api);
-
-                    p.establecerUrl();
-                    lista.add(p);
-                }
-
-                if (linea_partes.get(2).equals("Disney")) {
-                    APIDisney api = new APIDisney();
-
-                    api.establecerApiKey();
-                    p.establecerTipo(linea_partes.get(2));
-
-                    p.establecerLlave(api);
-
-                    p.establecerUrl();
-                    lista.add(p);
-                }
-
-                if (linea_partes.get(2).equals("Amazon")) {
-                    APIAmazonMovie api = new APIAmazonMovie();
-
-                    api.establecerApiKey();
-                    p.establecerTipo(linea_partes.get(2));
-
-                    p.establecerLlave(api);
-
-                    p.establecerUrl();
-                    lista.add(p);
-                }
-
-                if (linea_partes.get(2).equals("Startplus")) {
-                    APIStarPlus api = new APIStarPlus();
-
-                    api.establecerApiKey();
-                    p.establecerTipo(linea_partes.get(2));
-
-                    p.establecerLlave(api);
-
-                    p.establecerUrl();
-                    lista.add(p);
-                }
+                GeneradorPelicula generador = new GeneradorPelicula();
+                generador.establecerUser(linea_partes.get(1));
+                generador.establecerTipo(linea_partes.get(2));
+                lista.add(generador);
 
             }
         }
@@ -127,8 +79,10 @@ public final class LecturaArchivo {
     public void cerrarArchivo() {
         if (entrada != null) {
             entrada.close();
-        } // cierra el archivo
+        }
 
     }
 
+    
+    
 }
