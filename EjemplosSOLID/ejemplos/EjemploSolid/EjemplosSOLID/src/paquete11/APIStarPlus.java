@@ -1,5 +1,6 @@
+package paquete11;
 
-import paquete11.APIMovie;
+import java.util.Random;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,13 +16,15 @@ public class APIStarPlus implements APIMovie{
     private String apiKey;
     
     @Override
-    public void establecerApiKey(String ak){
-        apiKey = ak+"STARPLUS123123";
+    public void establecerApiKey(String ak) {
+        Random r = new Random();
+        int random = r.nextInt(15121644);
+        apiKey = ak + "STAR+" + random;
     }
     
     @Override
-    public String obtenerApiKey(){
+    public String obtenerApiKey() {
         return apiKey;
     }
-    
+
 }

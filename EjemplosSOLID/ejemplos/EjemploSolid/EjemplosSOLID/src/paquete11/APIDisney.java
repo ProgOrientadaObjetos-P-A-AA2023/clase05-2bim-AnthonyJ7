@@ -4,6 +4,8 @@
  */
 package paquete11;
 
+import java.util.Random;
+
 /**
  *
  * @author ASUS
@@ -13,12 +15,15 @@ public class APIDisney implements APIMovie{
     private String apiKey;
     
     @Override
-    public void establecerApiKey(String ak){
-        apiKey = ak+"DISNEY123123";
+    public void establecerApiKey(String ak) {
+        
+        Random r = new Random();
+        int random = r.nextInt(15121644);
+        apiKey = ak + "DISNEY" + random;
     }
     
     @Override
-    public String obtenerApiKey(){
+    public String obtenerApiKey() {
         return apiKey;
     }
     
