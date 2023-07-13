@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author ASUS
  */
-public class LecturaArchivo {
+public final class LecturaArchivo {
 
     private Scanner entrada;
     private String nombreArchivo;
@@ -23,15 +23,17 @@ public class LecturaArchivo {
 
     public LecturaArchivo(String n) {
         nombreArchivo = n;
-        rutaArchivo = String.format("datos/%s", nombreArchivo);
+
+        rutaArchivo = String.format("datos/%s", obtenerNombreArchivo());
         File f = new File(rutaArchivo);
         if (f.exists()) {
             try {
                 entrada = new Scanner(new File(rutaArchivo));
-            } catch (FileNotFoundException e) {
+            } // fin de try
+            catch (FileNotFoundException e) {
                 System.err.println("Error al leer del archivo: " + e);
 
-            }
+            } // fin de catch
         }
     }
 
@@ -68,55 +70,48 @@ public class LecturaArchivo {
 
                 if (linea_partes.get(2).equals("Netflix")) {
                     APINetflix api = new APINetflix();
-                    String apiKey = String.format("%s",
-                            linea_partes.get(2));
 
-                    api.establecerApiKey(apiKey);
-
+                    api.establecerApiKey();
+                    p.establecerTipo(linea_partes.get(2));
                     p.establecerLlave(api);
-                    String urlFinal = String.format("http://api.movie?api="
-                            + "%s/", linea_partes.get(1));
 
-                    p.establecerUrl(urlFinal);
+                    p.establecerUrl();
                     lista.add(p);
                 }
 
                 if (linea_partes.get(2).equals("Disney")) {
                     APIDisney api = new APIDisney();
-                    String apiKey = String.format("%s",
-                            linea_partes.get(2));
-                    api.establecerApiKey(apiKey);
+
+                    api.establecerApiKey();
+                    p.establecerTipo(linea_partes.get(2));
 
                     p.establecerLlave(api);
-                    String urlFinal = String.format("http://api.movie?api="
-                            + "%s/", linea_partes.get(1));
-                    p.establecerUrl(urlFinal);
+
+                    p.establecerUrl();
                     lista.add(p);
                 }
 
                 if (linea_partes.get(2).equals("Amazon")) {
                     APIAmazonMovie api = new APIAmazonMovie();
-                    String apiKey = String.format("%s",
-                            linea_partes.get(2));
-                    api.establecerApiKey(apiKey);
+
+                    api.establecerApiKey();
+                    p.establecerTipo(linea_partes.get(2));
 
                     p.establecerLlave(api);
-                    String urlFinal = String.format("http://api.movie?api="
-                            + "%s/", linea_partes.get(1));
-                    p.establecerUrl(urlFinal);
+
+                    p.establecerUrl();
                     lista.add(p);
                 }
 
                 if (linea_partes.get(2).equals("Startplus")) {
                     APIStarPlus api = new APIStarPlus();
-                    String apiKey = String.format("%s",
-                            linea_partes.get(2));
-                    api.establecerApiKey(apiKey);
+
+                    api.establecerApiKey();
+                    p.establecerTipo(linea_partes.get(2));
 
                     p.establecerLlave(api);
-                    String urlFinal = String.format("http://api.movie?api="
-                            + "%s/", linea_partes.get(1));
-                    p.establecerUrl(urlFinal);
+
+                    p.establecerUrl();
                     lista.add(p);
                 }
 
@@ -132,22 +127,8 @@ public class LecturaArchivo {
     public void cerrarArchivo() {
         if (entrada != null) {
             entrada.close();
-        }
+        } // cierra el archivo
 
-    }
-
-    @Override
-    public String toString() {
-        String cadena = "Lista de URL:\n";
-
-        for (int i = 0; i < obtenerLista().size(); i++) {
-            GeneradorPelicula p = obtenerLista().get(i);
-
-            cadena = String.format("%s(%d) %s\n", cadena,
-                    i + 1,
-                    p.obtenerUrl());
-        }
-        return cadena;
     }
 
 }

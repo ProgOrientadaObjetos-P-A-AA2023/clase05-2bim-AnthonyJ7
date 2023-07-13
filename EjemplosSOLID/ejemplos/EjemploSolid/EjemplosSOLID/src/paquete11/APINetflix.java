@@ -13,16 +13,16 @@ public class APINetflix implements APIMovie{
     private String apiKey;
     
     @Override
-    public void establecerApiKey(String ak) {
-        
+    public void establecerApiKey(){ 
         Random r = new Random();
-        int random = r.nextInt(15121644);
-        apiKey = ak + "NETFLIX" + random;
+        String random = String.format("%d",  r.nextInt(15121644));
+        apiKey = random;
     }
     
     @Override
-    public String obtenerApiKey() {
+    public String obtenerApiKey(){
         return apiKey;
     }
 
+    
 }

@@ -12,19 +12,19 @@ import java.util.Random;
  * @author ASUS
  */
 public class APIStarPlus implements APIMovie{
-    
-    private String apiKey;
+
+      private String apiKey;
     
     @Override
-    public void establecerApiKey(String ak) {
-        Random r = new Random();
-        int random = r.nextInt(15121644);
-        apiKey = ak + "STAR+" + random;
+    public void establecerApiKey(){
+       Random r = new Random();
+        String random = String.format("%d",  r.nextInt(15121644));
+        apiKey = random;
     }
     
     @Override
-    public String obtenerApiKey() {
+    public String obtenerApiKey(){
         return apiKey;
     }
-
+    
 }
