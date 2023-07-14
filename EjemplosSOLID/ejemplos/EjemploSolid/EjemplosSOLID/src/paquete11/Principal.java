@@ -13,87 +13,81 @@ public class Principal {
         LecturaArchivo lectura = new LecturaArchivo(nombreArchivo);
         lectura.establecerLista();
         ArrayList<GeneradorPelicula> lista = new ArrayList<>();
-        
+
         // Recorrido
-        
         for (int i = 0; i < lectura.obtenerLista().size(); i++) {
-            
+
             GeneradorPelicula p = new GeneradorPelicula();
-            
-            if(lectura.obtenerLista().get(2).equals("Netflix")){
-            
+
+            if (lectura.obtenerLista().get(i).obtenerTipo().equals("Netflix")) {
+
                 APINetflix api = new APINetflix();
-                
-                    api.establecerApiKey();
-                    
-                    p.establecerLlave(api);
-                    
-                    p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
-                    p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
-                    p.establecerUrl();
-                    
-                    
-                    lista.add(p);
+
+                api.establecerApiKey();
+
+                p.establecerLlave(api);
+
+                p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
+                p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
+                p.establecerUrl();
+
+                lista.add(p);
 
             }
-            
-            if(lectura.obtenerLista().get(2).equals("Disney")){
-            
+
+            if (lectura.obtenerLista().get(i).obtenerTipo().equals("Disney")) {
+
                 APINetflix api = new APINetflix();
-                
-                    api.establecerApiKey();
-                    
-                    p.establecerLlave(api);
-                    
-                    p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
-                    p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
-                    p.establecerUrl();
-                    
-                    
-                    lista.add(p);
+
+                api.establecerApiKey();
+
+                p.establecerLlave(api);
+
+                p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
+                p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
+                p.establecerUrl();
+
+                lista.add(p);
 
             }
-            
-            if(lectura.obtenerLista().get(2).equals("Amazon")){
-            
+
+            if (lectura.obtenerLista().get(i).obtenerTipo().equals("Amazon")) {
+
                 APINetflix api = new APINetflix();
-                
-                    api.establecerApiKey();
-                    
-                    p.establecerLlave(api);
-                    
-                    p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
-                    p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
-                    p.establecerUrl();
-                    
-                    
-                    lista.add(p);
+
+                api.establecerApiKey();
+
+                p.establecerLlave(api);
+
+                p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
+                p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
+                p.establecerUrl();
+
+                lista.add(p);
 
             }
-            
-            if(lectura.obtenerLista().get(2).equals("Startplus")){
-            
+
+            if (lectura.obtenerLista().get(i).obtenerTipo().equals("Startplus")) {
+
                 APINetflix api = new APINetflix();
-                
-                    api.establecerApiKey();
-                    
-                    p.establecerLlave(api);
-                    
-                    p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
-                    p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
-                    p.establecerUrl();
-                    
-                    
-                    lista.add(p);
+
+                api.establecerApiKey();
+
+                p.establecerLlave(api);
+
+                p.establecerTipo(lectura.obtenerLista().get(i).obtenerTipo());
+                p.establecerUser(lectura.obtenerLista().get(i).obtenerUser());
+                p.establecerUrl();
+
+                lista.add(p);
 
             }
- 
-            
+
         }
-        
-        
-        System.out.println(lista);
-        System.out.println("-----------------------------------");
+
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
         /*
         Usar el txt llamado usuarios.txt; por cada línea del archivo
         crer un API en función de su servicio; además el API ahora genera

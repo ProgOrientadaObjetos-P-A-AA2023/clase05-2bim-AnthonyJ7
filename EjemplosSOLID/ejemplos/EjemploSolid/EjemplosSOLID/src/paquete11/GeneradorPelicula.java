@@ -47,11 +47,11 @@ public class GeneradorPelicula {
 
     @Override
     public String toString() {
-        String cadena = "Lista Urls\n";
+      //  String cadena = "Lista Urls\n";
 
         
         
-        cadena = String.format("%s %s\n", cadena,
+        String cadena = String.format("%s\n",
                 obtenerUrl());
 
         return cadena;
